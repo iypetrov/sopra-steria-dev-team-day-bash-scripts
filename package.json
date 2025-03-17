@@ -1,0 +1,26 @@
+{
+  "name": "sopra-steria-dev-team-day-bash-scripts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx http-server -c-1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iypetrov/sopra-steria-dev-team-day-bash-scripts.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iypetrov/sopra-steria-dev-team-day-bash-scripts/issues"
+  },
+  "homepage": "https://github.com/iypetrov/sopra-steria-dev-team-day-bash-scripts#readme",
+  "dependencies": {
+    "reveal.js": "^5.1.0"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}
