@@ -37,12 +37,12 @@ cat "${CONTAINERS_TARGET_STATE}" | tail -n +2 | cut -d, -f1 | sort > "${TARGET_C
 
 while read CONTAINER_NAME; do
     delete_docker_container "${CONTAINER_NAME}"
-    echo "Container ${CONTAINER_NAME} was deleted at $(date +%Y-%m-%d\ %H:%M:%S)" > "${BABY_K8S_LOGS}"
+    echo "Container ${CONTAINER_NAME} was deleted at $(date +%Y-%m-%d\ %H:%M:%S)" >> "${BABY_K8S_LOGS}"
 done< <(comm -23 "${CURRENT_CONTAINERS}" "${TARGET_CONTAINERS}")
 
 while read CONTAINER_NAME; do
     create_docker_container "${CONTAINER_NAME}"
-    echo "Container ${CONTAINER_NAME} was created at $(date +%Y-%m-%d\ %H:%M:%S)" > "${BABY_K8S_LOGS}"
+    echo "Container ${CONTAINER_NAME} was created at $(date +%Y-%m-%d\ %H:%M:%S)" >> "${BABY_K8S_LOGS}"
 done< <(comm -13 "${CURRENT_CONTAINERS}" "${TARGET_CONTAINERS}")
 
 rm "${CURRENT_CONTAINERS}"
