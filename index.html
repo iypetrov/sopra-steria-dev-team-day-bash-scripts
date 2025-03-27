@@ -1,61 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shell Scripts</title>
-    <link rel="stylesheet" href="node_modules/reveal.js/dist/reveal.css">
-    <link rel="stylesheet" href="node_modules/reveal.js/dist/theme/white.css">
-    <style>
-        .logo {
-            position: fixed;
-            bottom: 30px;
-            left: 30px;
-            width: 300px;
-            height: auto;
-        }
-    </style>
-</head>
-<body>
-    <div class="reveal">
-        <div class="slides">
-            <section>
-                <h2>Shell Scripts</h2>
-            </section>
-            <section>
-                <h2>What are Bash scripts?</h2>
-            </section>
-            <section>
-                <h2>Why are Bash scripts useful?</h2>
-            </section>
-            <section>
-                <h2>Unix philosophy and some example commands</h2>
-            </section>
-            <section>
-                <h2>Our task today</h2>
-            </section>
-            <section>
-                <h2>Typical "Software engineering" soulution</h2>
-            </section>
-            <section>
-                <h2>Bash Solution</h2>
-            </section>
-            <section>
-                <h2>Coding time</h2>
-            </section>
-            <section>
-                <h2>Q&A</h2>
-            </section>
-            <section>
-                <h2>Thanks for your attention</h2>
-            </section>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Practical Shell Scripting</title>
+        <link rel="stylesheet" href="node_modules/reveal.js/dist/reveal.css" />
+        <link rel="stylesheet" href="node_modules/reveal.js/dist/theme/white.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/xcode.min.css" />
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section>
+                    <h2>practical shell scripting</h2>
+                </section>
+
+                <section>
+                    <h3>agenda for today</h3>
+                    <ul>
+                        <li>What are shell scripts and why they are useful?</li>
+                        <li>Basic concepts and constructs</li>
+                        <li>Shell scripts in practice</li>
+                        <li>Live demo: baby-k8s</li>
+                        <li>Q&A</li>
+                        <li>Conclusion</li>
+                    </ul>
+                </section>
+
+                <!-- What are shell scripts and why they are useful? -->
+                <section>
+                    <h2>what are shell scripts and why they are useful?</h2>
+                </section>
+
+                <!-- Basic concepts and constructs -->
+                <section>
+                    <h2>basic concepts and constructs</h2>
+                </section>
+
+                <!-- Shell scripts in practice -->
+                <section>
+                    <h2>shell scripts in practice</h2>
+                </section>
+
+                <!-- baby-k8s -->
+                <section>
+                    <h2>baby-k8s</h2>
+                </section>
+
+                <!-- Q&A -->
+                <section>
+                    <h2>q&a</h2>
+                </section>
+
+                <!-- Conclusion -->
+                <section>
+                    <h3>conclusion</h3>
+                    <p>Thank you for your attention!</p>
+                </section>
+            </div>
         </div>
-    </div>
-    <img src="logo-soprasteria.svg" alt="Sopra Steria" class="logo">
-    
-    <script src="node_modules/reveal.js/dist/reveal.js"></script>
-    <script>
-        Reveal.initialize();
-    </script>
-</body>
+
+        <footer style="position: fixed; bottom: 10px; left: 10px;">
+            <img src="logo-soprasteria.svg" alt="Sopra Steria Logo" style="width: 18rem; height: auto;" />
+        </footer>
+        <script src="node_modules/reveal.js/dist/reveal.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+        <script>
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                slideNumber: false,
+                history: true,
+                center: true,
+                transition: 'slide'
+            });
+            hljs.highlightAll();
+        </script>
+    </body>
 </html>
