@@ -4,10 +4,18 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Practical Shell Scripting</title>
+       	<link rel="icon" type="image/x-icon" href="small-logo.png"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/reveal.min.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/theme/white.min.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/xcode.min.css" />
     </head>
+    <style>
+        mark {
+            background-color: #ececec; 
+            color: #c6241d;              
+            border-radius: 10px;     
+        }
+    </style
     <body>
         <div class="reveal">
             <div class="slides">
@@ -44,7 +52,45 @@
 
                 <!-- baby-k8s -->
                 <section>
-                    <h2>baby-k8s</h2>
+                    <section>
+                        <h2>baby-k8s</h2>
+                    </section>
+                    <section>
+                        <h3>why would we want to build this?</h3>
+                        <ul>
+                            <li>Simple use case</li>
+                            <li>Easy to implement & maintain</li>
+                            <li>Very lightweight solution compared to Kubernetes, HasiCorp Nomad or even Docker Swarm</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>real-world scenario</h3>
+                        <ul>
+                            <li>In my previous project, I was part of a team responsible for the management & communication with IoT devices</li>
+                            <li>IoT devices are usually resource-constrained</li>
+                            <li>We utilized similar scripts to manage containers on these devices</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>what do we want to achieve?</h3>
+                        <ul>
+                            <li>To have a configuration file, where we define our target state</li>
+                            <li>Automatic lifecycle management of our containers</li>
+                            <li>To receive notifications on our Discord channel, when there is some event</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>what will we do?</h3>
+                        <ul>
+                            <li>Will use <mark>containers.csv</mark> file to declare the target state</li>
+                            <li>Will use <mark>discord-notification.sh</mark> script to send notifications</li>
+                            <li>Extend the <mark>baby-k8s.sh</mark> script in order to achive our goal</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>desired result</h3>
+                        <img src="discord-notifications.png" alt="Discord notifications" style="width: 20rem; height: auto; border: none;" />
+                    </section>
                 </section>
 
                 <!-- Q&A -->
@@ -55,13 +101,13 @@
                 <!-- Conclusion -->
                 <section>
                     <h3>conclusion</h3>
-                    <p>Thank you for your attention!</p>
+                    <p>Thank you for your attention! ❤️</p>
                 </section>
             </div>
         </div>
 
         <footer style="position: fixed; bottom: 10px; left: 10px;">
-            <img src="logo-soprasteria.svg" alt="Sopra Steria Logo" style="width: 18rem; height: auto;" />
+            <img src="big-logo.svg" alt="Sopra Steria Logo" style="width: 18rem; height: auto;" />
         </footer>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/js/reveal.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
