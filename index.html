@@ -47,8 +47,90 @@
 
                 <!-- Shell scripts in practice -->
                 <section>
-                    <h2>shell scripts in practice</h2>
+                    <section>
+                        <h2>shell scripts in practice</h2>
+                    </section>
+                    <section>
+                        <p>for this section will use <mark>containers.csv</mark></p>
+                    </section>
+                    <section>
+                        <h3>columns of the csv file</h3>
+                        <ul>
+                            <li>container_name</li>
+                            <li>image_name</li>
+                            <li>image_tag</li>
+                            <li>team</li>
+                            <li>port</li>
+                            <li>cpu</li>
+                            <li>memory_gb</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>how to remove the heading line?</h3>
+                        <pre><code class="language-bash">
+#!/bin/bash
+
+cat containers.csv | tail -n +2
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h3>how to get data only for the image names?</h3>
+                        <pre><code class="language-bash">
+#!/bin/bash
+
+cat containers.csv | cut -d ',' -f 2
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h3>how to get data only for the memory limits?</h3>
+                        <pre><code class="language-bash">
+#!/bin/bash
+
+# Option 1 
+cat containers.csv | cut -d ',' -f 7
+
+# Option 2
+cat containers.csv | rev | cut -d ',' -f 1 | rev
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h3>how to sort data by cpus limits (descending)?</h3>
+                        <pre><code class="language-bash">
+#!/bin/bash
+
+cat containers.csv | tail -n +2 | sort -n -r -t ',' -k 6
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h3>how to sort data:</h3>
+                        <ol>
+                            <li>by memory limits (ascending)</li>
+                            <li>by team name (descending)</li>
+                        </ol>
+                        <pre><code class="language-bash">
+#!/bin/bash
+
+cat containers.csv | \
+    tail -n +2 | \
+    sort -t ',' -k7,7n -k4,4r
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h3>how to aggregate the data based on the image name?</h3>
+                        <p>Desired format:</p>
+                        <p>"number-of-image-occurences" "image-name"</p>
+                        <pre><code class="language-bash">
+#!/bin/bash
+
+cat containers.csv | \
+    tail -n +2 | \
+    cut -d ',' -f 2 | \
+    sort | \
+    uniq -c
+                        </code></pre>
+                    </section>
                 </section>
+
 
                 <!-- baby-k8s -->
                 <section>
@@ -61,14 +143,6 @@
                             <li>Simple use case</li>
                             <li>Easy to implement & maintain</li>
                             <li>Very lightweight solution compared to Kubernetes, HasiCorp Nomad or even Docker Swarm</li>
-                        </ul>
-                    </section>
-                    <section>
-                        <h3>real-world scenario</h3>
-                        <ul>
-                            <li>In my previous project, I was part of a team responsible for the management & communication with IoT devices</li>
-                            <li>IoT devices are usually resource-constrained</li>
-                            <li>We utilized similar scripts to manage containers on these devices</li>
                         </ul>
                     </section>
                     <section>
@@ -85,6 +159,14 @@
                             <li>Will use <mark>containers.csv</mark> file to declare the target state</li>
                             <li>Will use <mark>discord-notification.sh</mark> script to send notifications</li>
                             <li>Extend the <mark>baby-k8s.sh</mark> script in order to achive our goal</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>real-world scenario</h3>
+                        <ul>
+                            <li>In my previous project, I was part of a team responsible for the management & communication with IoT devices</li>
+                            <li>IoT devices are usually resource-constrained</li>
+                            <li>We utilized similar scripts to manage containers on these devices</li>
                         </ul>
                     </section>
                     <section>
