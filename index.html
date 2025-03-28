@@ -177,12 +177,45 @@ fi
                     </section>
                     <section>
                         <h2>other useful checks</h2>
+                        <p>For reference use <mark>man test</mark></p>
                         <pre><code class="language-bash">
 #!/bin/bash     
 
 [[ -f file.txt ]] && echo "The file exists"
 ! [[ -n "" ]] && echo "The string is NOT empty"
 [[ file1.txt -nt file2.txt ]] && echo "file1.txt is newer than file2.txt"
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2>for loop</h2>
+                        <pre><code class="language-bash">
+#!/bin/bash
+
+for i in {1..5}; do
+    echo "Iteration ${i}"
+done
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2>while loop</h2>
+                        <pre><code class="language-bash">
+#!/bin/bash
+
+while read LINE; do
+    echo "Line content: ${LINE}"
+done < <(echo "a b c" | tr ' ' '\n')
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2>#1 lesson: sometimes we just trust our buddies</h2>
+                        <p>Lets give a look on <mark>discord-notification.sh</mark> script</p>
+                        <pre><code class="language-bash">
+$ cd scripts
+# Expects 3 arguments:
+# 1. Message title
+# 2. Message description
+# 3. Message status (create, destroy)
+$ ./discord-notification.sh "DEV Team Day" "Hey, are you going to the Practical Shell Scripting presentation?" "create"
                         </code></pre>
                     </section>
                 </section>
