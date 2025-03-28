@@ -15,7 +15,7 @@
             color: #c6241d;              
             border-radius: 10px;     
         }
-    </style
+    </style>
     <body>
         <div class="reveal">
             <div class="slides">
@@ -43,7 +43,96 @@
 
                 <!-- Basic commands -->
                 <section>
-                    <h2>basic commands</h2>
+                    <section>
+                        <h2>basic commands</h2>
+                    </section>
+                    <section>
+                        <ul>
+                            <li>Commands are text-based instructions used in a UNIX-like operating system to perform tasks such as:</li>
+                            <ul>
+                                <li> file manipulation</li>
+                                <li> process control</li>
+                                <li> system administration</li>
+                            </ul>
+                            <li>UNIX philosophy is <b>"Do One Thing Well"</b></li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>man pages</h2>
+                        <p>When you want to know what some command is doing and how to use it always refer to its <mark>man page</mark></p>
+                        <ul>
+                            <li><mark>man "command-name"</mark></li>
+                            <li>If you are not on a UNIX machine, can check the man pages online, <a href="http://man.he.net/man1">link</a></li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>managing files & directories</h2>
+                        <pre><code class="language-bash">
+# creates a directory
+$ mkdir scripts
+
+# goes to the directory
+$ cd scripts
+
+# creates a file
+$ touch main.sh
+
+# give execution permissions to the file
+$ chmod +x main.sh
+
+# lists the files in the directory
+$ ls -la
+
+# lists the files in the directory (second way)
+$ find . -maxdepth 1 -type f
+
+# copy a file
+$ cp main.sh main-copy.sh
+
+# moves a file
+$ mv main.sh scripts/main.sh
+
+# renames a file
+$ mv main.sh main-new.sh
+
+# removes the file
+$ rm main.sh
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2>Basic commands</h2>
+                        <pre><code class="language-bash">
+# print text to the console
+$ echo "Hello, World!"
+
+# see the content of the file
+$ cat file.txt
+
+# see the first 5 lines of the file 
+$ head -n 5 file.txt
+
+# see the last 5 lines of the file
+$ tail -n 5 file.txt
+
+# count the number of lines in the file
+$ wc -l file.txt
+
+# get the current date
+$ date +%Y-%m-%d
+
+# search for a string in the file
+$ grep "pattern" file.txt
+
+# replace a string in the file
+$ sed -i 's/old/new/g' file.txt
+
+# split the string by a delimiter and get the third element
+$ cut -d ',' -f 3 file.txt
+
+# sort the file by the second column
+$ sort -t ',' -k second file.txt
+                        </code></pre>
+                    </section>
                 </section>
 
                 <!-- Basic concepts and constructs -->
@@ -237,6 +326,7 @@ $ cd scripts
 # 2. Message description
 # 3. Message status (create, destroy)
 $ ./discord-notification.sh "DEV Team Day" "Hey, are you going to the Practical Shell Scripting presentation?" "create"
+$ ./discord-notification.sh "DEV Team Day" "Yea, I think it would be cool" "destroy"
                         </code></pre>
                     </section>
                 </section>
