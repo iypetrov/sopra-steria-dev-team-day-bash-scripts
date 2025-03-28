@@ -27,6 +27,7 @@
                     <h3>agenda for today</h3>
                     <ul>
                         <li>What are shell scripts and why they are useful?</li>
+                        <li>Basic commands</li>
                         <li>Basic concepts and constructs</li>
                         <li>Shell scripts in practice</li>
                         <li>Live demo: baby-k8s</li>
@@ -38,6 +39,11 @@
                 <!-- What are shell scripts and why they are useful? -->
                 <section>
                     <h2>what are shell scripts and why they are useful?</h2>
+                </section>
+
+                <!-- Basic commands -->
+                <section>
+                    <h2>basic commands</h2>
                 </section>
 
                 <!-- Basic concepts and constructs -->
@@ -142,7 +148,7 @@ cat containers.csv | \
                         <ul>
                             <li>Simple use case</li>
                             <li>Easy to implement & maintain</li>
-                            <li>Very lightweight solution compared to Kubernetes, HasiCorp Nomad or even Docker Swarm</li>
+                            <li>Very lightweight solution compared to Kubernetes, HashiCorp Nomad or even Docker Swarm</li>
                         </ul>
                     </section>
                     <section>
@@ -168,6 +174,23 @@ cat containers.csv | \
                             <li>IoT devices are usually resource-constrained</li>
                             <li>We utilized similar scripts to manage containers on these devices</li>
                         </ul>
+                    </section>
+                    <section>
+                        <h3>here some commands that we will need</h3>
+                        <pre><code class="language-bash">
+#!/bin/bash
+
+# Get the containers that are created from baby-k8s
+docker ps -a \
+    --filter "label=owner=baby-k8s" \
+    --format '{{.Names}}'
+
+# Get the container names that should be created
+comm -13 "${CURRENT_CONTAINERS}" "${TARGET_CONTAINERS}"
+
+# Get the container names that should be deleted
+comm -23 "${CURRENT_CONTAINERS}" "${TARGET_CONTAINERS}"
+                        </code></pre>
                     </section>
                     <section>
                         <h3>desired result</h3>
