@@ -153,7 +153,7 @@ fi
                         <pre><code class="language-bash">
 #!/bin/bash     
 
-STATUS="running"
+STATUS="$1"
 
 if [[ "${STATUS}" = "running" ]]; then
     echo "Status is running"    
@@ -184,6 +184,26 @@ fi
 [[ -f file.txt ]] && echo "The file exists"
 ! [[ -n "" ]] && echo "The string is NOT empty"
 [[ file1.txt -nt file2.txt ]] && echo "file1.txt is newer than file2.txt"
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2>switch case</h2>
+                        <pre><code class="language-bash">
+#!/bin/bash
+
+COMMAND="$1"
+
+case "${COMMAND}" in
+    "start")
+        echo "Starting the service"
+        ;;
+    "stop")
+        echo "Stoping the service"
+        ;;
+    *)
+        echo "Unknown command"
+        ;;
+esac
                         </code></pre>
                     </section>
                     <section>
