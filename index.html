@@ -48,7 +48,143 @@
 
                 <!-- Basic concepts and constructs -->
                 <section>
-                    <h2>basic concepts and constructs</h2>
+                    <section>
+                        <h2>basic concepts and constructs</h2>
+                    </section>
+                    <section>
+                        <h2>pipes</h2>
+                        <p>Pipe is an operator that redirects the output of one command as the input to another command</p>
+                        <pre><code class="language-bash">
+$ echo "a b c" | tr ' ' '\n'
+a
+b
+c
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2>redirection</h2>
+                        <p>Redirection is a process of sending the output of one command to a file or another command</p>
+                        <pre><code class="language-bash">
+# Append to the file
+$ echo "Hello, World!" >> hello.txt
+# Truncate the file                        
+$ echo "Hello, New World!" > hello.txt
+$ cat hello.txt
+Hello, New World!
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2>shebang</h2>
+                        <ul>
+                            <li>Shebang is a special character sequence that tells the OS to use a specific interpreter</li>
+                            <li>Shebang is required at the top of each shell script file</li>
+                            <li>Possible options are:</li>
+                            <ul>
+                                <li>#!/bin/sh</li>
+                                <li>#!/bin/bash</li>
+                                <li>#!/bin/zsh</li>
+                                <li>...</li>
+                            </ul>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>shebang</h2>
+                        <p>The most popular is <mark>#!/bin/bash</mark>, so we will use it for the presentation</p>
+                        <pre><code class="language-bash">
+#!/bin/bash
+
+echo "Hello, World!"
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2>how to create a shell script?</h2>
+                        <pre><code class="language-bash">
+$ touch main.sh
+$ chmod +x main.sh
+$ echo "#!/bin/bash" > main.sh
+$ echo "echo hello" >> main.sh
+$ ./main.sh
+hello
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2>variables</h2>
+                        <ul>
+                            <li>Leave no space arround <mark>=</mark></li>
+                            <li>When you are calling variables always surround them with <mark>${...}</mark></li>
+                        </ul>
+                        <pre><code class="language-bash">
+#!/bin/bash
+
+username="john"
+message="$(echo "Hello, ${username}!")"
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2>functions</h2>
+                        <pre><code class="language-bash">
+#!/bin/bash
+
+function say_hello_to() {
+    local NAME="$1"
+    local SURNAME="$2"
+    echo "Hello, ${NAME} ${SURNAME}!"
+}
+
+say_hello_to "john" "smith"
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2>if-elif-else statements</h2>
+                        <pre><code class="language-bash">
+#!/bin/bash     
+
+if [[ "condition 1" ]]; then
+    echo "Condition 1"
+elif [[ "condition 2" ]]; then
+    echo "Condition 2"
+else
+    echo "Unknown condition"
+fi
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2>comparing strings</h2>
+                        <pre><code class="language-bash">
+#!/bin/bash     
+
+STATUS="running"
+
+if [[ "${STATUS}" = "running" ]]; then
+    echo "Status is running"    
+elif [[ "${STATUS}" != "running" ]]; then
+    echo "Status is not running"
+fi
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2>comparing integers</h2>
+                        <pre><code class="language-bash">
+#!/bin/bash     
+
+STATUS=0
+if [[ ${STATUS} -eq 0 ]]; then
+    echo "Status is 0"    
+elif [[ ${STATUS} -ne 0 ]]; then
+    echo "Status is not 0"
+fi
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2>other useful checks</h2>
+                        <pre><code class="language-bash">
+#!/bin/bash     
+
+[[ -f file.txt ]] && echo "The file exists"
+! [[ -n "" ]] && echo "The string is NOT empty"
+[[ file1.txt -nt file2.txt ]] && echo "file1.txt is newer than file2.txt"
+                        </code></pre>
+                    </section>
                 </section>
 
                 <!-- Shell scripts in practice -->
