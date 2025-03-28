@@ -38,7 +38,7 @@ JSON_PAYLOAD=$(cat <<EOF
 EOF
 )
 
-response=$(curl -s -o /dev/null -w "%{http_code}" -H "Content-Type: application/json" -d "${JSON_PAYLOAD}" "${DISCORD_DEPLOYMENTS_WEBHOOK_URL}")
+response=$(curl -X POST -s -o /dev/null -w "%{http_code}" -H "Content-Type: application/json" -d "${JSON_PAYLOAD}" "${DISCORD_DEPLOYMENTS_WEBHOOK_URL}")
 if [[ "$response" != "204" ]]; then
   echo "Failed to send notification. HTTP response: $response"
   exit 1
